@@ -97,9 +97,9 @@ impl<'a> Request<'a> {
                 se.proto_minor = arg.minor;
                 // Call filesystem init method and give it a chance to return an error
                 let res = se.filesystem.init(self);
-                if res.is_err() {
-                    reply.error(res.unwrap_err());
-                    return;
+                match res {
+                    Ok(_) => {},
+                    Err(err) => {reply.error(err);return}
                 }
                 // Reply with our desired version and settings. If the kernel supports a
                 // larger major version, it'll re-send a matching init message. If it
