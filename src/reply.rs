@@ -9,7 +9,7 @@
 //!
 
 use std::{mem, ptr, slice};
-use std::io::{FileType, FilePermission};
+use std::old_io::{FileType, FilePermission};
 use std::path::PosixPath;
 use std::thunk::Invoke;
 use libc::c_int;

@@ -33,7 +33,7 @@ impl<'a> ArgumentIterator<'a> {
             self.pos += 1
         }
         self.pos += 1;  // Eat the null terminator
-        self.data.slice(start, self.pos-1)
+        self.data.slice(start,self.pos-1)
     }
 
     /// Fetch a (zero-terminated) Posix path
